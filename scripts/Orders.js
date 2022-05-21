@@ -1,4 +1,4 @@
-import { getOrders,getMetals,getStyles,getSizes } from "./database.js"
+import { getOrders, getMetals, getStyles, getSizes } from "./database.js"
 
 const buildOrderListItem = (order) => {
     const metals = getMetals()
@@ -6,38 +6,38 @@ const buildOrderListItem = (order) => {
     const sizes = getSizes()
 
 
-// Remember that the function you pass to find() must return true/false
-const foundMetal = metals.find(
-    (metal) => {
-        return metal.id === order.metalId
-    }
-)
-const totalCostOfMetal = foundMetal.price
+    // Remember that the function you pass to find() must return true/false
+    const foundMetal = metals.find(
+        (metal) => {
+            return metal.id === order.metalId
+        }
+    )
+    const totalCostOfMetal = foundMetal.price
 
-const foundStyle = styles.find(
-    (style) => {
-        return style.id === order.styleId
-    }
-)
+    const foundStyle = styles.find(
+        (style) => {
+            return style.id === order.styleId
+        }
+    )
 
-const totalCostOfStyle = foundStyle.price
+    const totalCostOfStyle = foundStyle.price
 
-const foundSize = sizes.find(
-    (size) => {
-        return size.id === order.sizeId
-    }
-)
-const totalCostOfSize = foundSize.price
+    const foundSize = sizes.find(
+        (size) => {
+            return size.id === order.sizeId
+        }
+    )
+    const totalCostOfSize = foundSize.price
 
 
-const totalCost = totalCostOfMetal + totalCostOfStyle + totalCostOfSize
+    const totalCost = totalCostOfMetal + totalCostOfStyle + totalCostOfSize
 
-const costString = totalCost.toLocaleString("en-US", {
-    style: "currency",
-    currency: "USD"
-})
+    const costString = totalCost.toLocaleString("en-US", {
+        style: "currency",
+        currency: "USD"
+    })
 
-return `<li>Order #${order.id} cost ${costString}</li>`
+    return `<li>Order #${order.id} cost ${costString}</li>`
 }
 
 export const Orders = () => {

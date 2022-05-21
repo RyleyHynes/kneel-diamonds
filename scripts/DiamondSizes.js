@@ -27,10 +27,10 @@ export const DiamondSizes = () => {
     //unlike a for..of loop the .map() method invokes the function that you define
     const listItems = sizes.map(
         (size) => {
-        return `<li>
+            return `<li>
             <input type="radio" name="size" value="${size.id}"/> ${size.carets}
             </li>`
-    })
+        })
 
     html += listItems.join("")
     html += "</ul>"

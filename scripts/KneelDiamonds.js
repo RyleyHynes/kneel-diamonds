@@ -6,10 +6,10 @@ import { Orders } from "./Orders.js"
 document.addEventListener(
     "click",
     (event) => {
-        if (event.target.name === ""){
+        if (event.target.name === "") {
             addCustomOrder()
+        }
     }
-}
 )
 //here we are creating an exportable function KneelDiamonds which returns all of our HTML to our document.
 export const KneelDiamonds = () => {
